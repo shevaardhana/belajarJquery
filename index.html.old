@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Latihan Jquery</title>
+        <script src="lib/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <input id="keyword" value=""/>
+        <button id="btn_tes">Click Me</button>
+        <button class="btn_blur">Click Me</button>
+        <hr>
+        <input id="target" type="text" value="Field 1">
+
+        <div id="list_move"></div>
+
+    </body>
+    <script>
+        $(document).ready(function(){
+            let BASE_URL = "http://www.omdbapi.com"
+            let TOKEN   = "b45dad4f"
+            
+            $("#target").blur(function(){
+                console.log("ini on blur")
+            })
+
+            $("#target").focus(function(){
+                console.log("ini on focus")
+            })
+
+            $("#target").change(function(){
+                console.log("ini on change")
+            })
+
+            $("#keyword").change(function(){
+                console.log("in on Change")
+            })
+
+            $("#btn_tes").dblclick( () =>{
+                let keyword = $("#keyword").val()
+                let output = ''
+
+                $.ajax({
+                    method:'GET',
+                    url:BASE_URL,
+                    data:{
+                        apikey:TOKEN,
+                        s:keyword
+                    },
+                    dataType:'json',
+                    success:function(res){
+                        for(let i=0; i< res.Search.length; i++){
+                            output += "<h3>"+res.Search[i].Title+"</h3>"
+                            output += "<hr>"
+                        }
+
+                        $("#list_move").html(output)                   
+                    }
+                })
+            })
+
+
+        })
+
+    </script>
+</html>
