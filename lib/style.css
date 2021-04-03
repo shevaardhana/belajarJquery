@@ -1,0 +1,41 @@
+.img-rounded{
+    border-radius: 100px;
+    width: 60px;
+}
+
+.avatar{
+    padding: 15px !important;
+}
+
+.ui-left{
+    float: left;
+    /* border: 1px solid #000; */
+    width: 20%;
+}
+
+.ui-right{
+    float: right;
+    padding-left: 10px;
+    /* border: 1px solid #000; */
+    width: 70%;
+}
+
+.card-categori{
+    background-image: url("../images/kids.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.kategori-title{
+    font-size: x-large;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.my-animasi{
+    border: 1px solid #000;
+}
