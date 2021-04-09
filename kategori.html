@@ -56,31 +56,24 @@
 
             $.ajax({
                 method:'GET',
-                url: BASE_URL + "/api/kategori",
+                url: "http://lemniskett.ddns.net:8280/api/kategori",
                 dataType:'json',
                 success:function(res){
-                    let output=""
-                    for(let i =0; i<res.length; i++){
-                        output +='<div class="card-categori animate">'
-                        output +='<div class="kategori-title">'+res[i].nama_kategori+'</div>'
-                        output +='<div>'+res[i].deskripsi+'</div>'
+                    let i = 0;
+                    let loop = setInterval(() => {
+                        let output = ""
+                        output +=`<div class="card-categori animate order-${i}">`
+                        output +='<div class="kategori-title">'+res.data[i].nama_kategori+'</div>'
+                        output +='<div>'+res.data[i].deskripsi+'</div>'
                         output +='</div>'
-                        
-                        
-                        
-
-                        // setInterval(function(){
-                        //     $( ".animate" ).effect( "slide");
-                        // },500);
-
-                        // setTimeout(function() {
-                        //     $( ".animate" ).effect( "slide");
-                        // }, 3000 );
-                    }
-
-                    $('#content').html(output)
-
-                    
+                        $('#content').append(output);
+                        $( `.animate.order-${i}` ).effect( "slide");
+                        i++;
+                        console.log(i);
+                        if(i >= res.data.length){
+                            clearInterval(loop);
+                        }
+                    }, 500);
                 }
             })
         })

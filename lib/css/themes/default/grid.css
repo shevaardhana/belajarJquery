@@ -1,0 +1,30 @@
+button{ 
+     width: 90px !important; 
+}
+ .produk-page.grid{
+     display:grid;
+     grid-template-columns: repeat(2,50%);
+ }
+ .produk{
+    background-color: aliceblue;
+    border: 1px solid white;
+    height: 300px;
+}
+
+.produk img{
+    width: 490px;
+    height: 300px;
+}
+
+.produk-page.list{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.produk-page.list img{
+    width: 1000px;
+    height: 300px;
+    margin-right: 5px;
+}
+
+
